@@ -26,7 +26,7 @@ $smtp_port = 25 # default SMTP port, or change as needed
 $subject = 'Unresolved JIRA tickets' # Change subject as needed
 
 # Report settings
-$report_title = 'Pending HackerOne Tickets' # This will be the title of the HTML report
+$report_title = 'Pending Open Tickets' # This will be the title of the HTML report
 $text_font = 'Tahoma' # Style it differently as needed
 $table_font = 'Arial' # Style it differently as needed
 
