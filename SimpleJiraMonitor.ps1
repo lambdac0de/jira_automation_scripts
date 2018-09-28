@@ -195,6 +195,9 @@ function Send-Email
 $global:emailsCol = @()
 $tickets = Get-JiraTickets | Sort-Object -Property 'Ticket Age' -Descending
 
+# At some point, Jira started requiring explicit protocol definition during TLS handshake
+[System.Net.ServicePointManager]::SecurityProtocol = @("Tls12","Tls11","Tls")
+    
 if ($tickets -eq $false) {
     exit 1
 }
