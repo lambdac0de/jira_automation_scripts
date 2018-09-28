@@ -192,12 +192,15 @@ function Send-Email
 #################################
 
 ################################# MAIN program flow
+# Variable placeholder to hold all email recipients
 $global:emailsCol = @()
-$tickets = Get-JiraTickets | Sort-Object -Property 'Ticket Age' -Descending
 
 # At some point, Jira started requiring explicit protocol definition during TLS handshake
 [System.Net.ServicePointManager]::SecurityProtocol = @("Tls12","Tls11","Tls")
-    
+
+# Get Jira tickets
+$tickets = Get-JiraTickets | Sort-Object -Property 'Ticket Age' -Descending
+
 if ($tickets -eq $false) {
     exit 1
 }
